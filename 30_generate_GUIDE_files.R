@@ -6,8 +6,8 @@ generate_guide_description_file <-
     i <- 1:num_partition
     iandj <- expand.grid(i = i, j = j)
     mclapply(1:nrow(iandj), function(iter) {
-      i <- iandj[iter,]$i
-      j <- iandj[iter,]$j
+      i <- iandj[iter, ]$i
+      j <- iandj[iter, ]$j
       ## Generate GUIDE .dsc
       kfoldj_parti_path <-
         str_c("kfold_partitions/rand_seed_",

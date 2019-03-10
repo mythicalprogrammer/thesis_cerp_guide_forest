@@ -47,3 +47,4 @@ guide_output/*
 partitions/*
 prostate.tmp_input
 log.txt
+tmp_input/*

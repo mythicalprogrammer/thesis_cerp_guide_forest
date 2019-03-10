@@ -3,7 +3,9 @@ cross_validate_CERP_GUIDE <- function(num_partition,
                                       prostate_data,
                                       rand_seed) {
   forest_predictions <- list()
+  # run through each kfolds
   for (k in 1:num_of_folds) {
+    # run through each trees (num_partition = num of trees in forest)
     forest_votes <- mclapply(1:num_partition, function(i) {
       # leftout is use to predict
       leftout <- prostate_data[k, ]
@@ -16,7 +18,6 @@ cross_validate_CERP_GUIDE <- function(num_partition,
               "_tree_",
               i,
               ".R")
-      print(kth_ith_tree)
       text <- readLines(kth_ith_tree, encoding = "UTF-8")
       to_be_remove <- grep("^newdata <-*", text)
 

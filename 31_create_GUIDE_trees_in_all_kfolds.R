@@ -19,7 +19,6 @@ create_CERP_GUIDE_forest <-
     if (!dir.exists(result_dir)) {
       dir.create(result_dir)
     }
-
     mclapply(1:nr, function(iter) {
       k <- kandj[iter, ]$k
       j <- kandj[iter, ]$j

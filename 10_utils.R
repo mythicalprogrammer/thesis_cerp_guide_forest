@@ -28,3 +28,12 @@ clear_forests <- function() {
     unlink(dir, recursive = TRUE)
   }
 }
+
+check_if_forest_exist <- function(rand_seed, num_part, num_kfold) {
+  result_dir <-
+    str_c('guide_output/forests/rand_seed_', rand_seed)
+  exist <- dir.exists(result_dir)
+  num_files <- length(list.files(result_dir))
+  file_equal <- num_files == (num_part * num_kfold)
+  return(exist && file_equal)
+}
